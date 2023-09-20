@@ -1,0 +1,250 @@
+*{
+    
+    padding: 0;
+    box-sizing: border-box;
+    transition: .2s linear;
+    font-family: 'Gilroy';
+    overflow-x: hidden;/*prevent scroll bar for whole page*/
+}
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #0d1b1e;
+
+}
+/*----------------header-------------------------------*/
+header {
+    padding: 10px;
+    color: #7798ab;
+    text-align: center;
+    display: flex;
+    justify-content: space-between ;
+    align-items: center;
+}
+.logo{
+    display: flex;
+    align-items: center;
+
+}
+.logo img{
+    max-width: 50px;
+    height: auto;
+    margin-right: 10px;
+}
+.nav {
+    display: flex;
+}
+.nav a:hover{
+    cursor: pointer;
+    color:#e9dcb9;
+    background-color: #0d1b1e;
+}
+.nav a {
+    color: #fff;
+    text-decoration: none;
+    margin-left: 50px;
+    font-size: 18px;
+}
+.menu-icon{
+    display: none;
+}
+h1{
+    display: flex;
+    justify-content: center;
+    color: #c3dbc5;
+}
+
+
+
+/* Responsive styles for header*/
+@media screen and (max-width: 600px) {
+    .nav {
+        display: none;
+    }
+
+    .nav.active {
+        display: block;
+        position: absolute;
+        top: 75px;
+        left: 0;
+        width: 100%;
+        background-color:#e9dcb9 ;
+        z-index: 1000;
+    }
+
+    .nav.active a {
+        display: block;
+        padding: 10px;
+    }
+
+    .menu-icon {
+        display: block;
+        font-size: 24px;
+        cursor: pointer;
+    }
+
+    .menu-icon.active {
+        color:#e9dcb9;
+    }
+    
+    
+    .logo {
+        margin-bottom: 10px;
+    }
+      
+}
+/*footer design*/
+footer {
+    background-color: black;
+    color: #fff;
+    text-align: center;
+    padding: 20px;
+}
+.social{
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    margin-top: 10px;
+
+}
+.social a{
+    color: #fff;
+    text-decoration: none;
+    margin: 0 15px;
+    font-size: 14px;
+
+}
+.footer-links {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    margin-top: 10px;
+}
+.footer-links a {
+    color: #fff;
+    text-decoration: none;
+    margin: 0 15px;
+    font-size: 14px;
+}
+/* Responsive styles for footer*/
+@media screen and (max-width: 600px) {
+    .footer-links {
+        flex-direction: column;
+    }
+
+    .footer-links a {
+        margin: 5px 0;
+    }
+}
+/*loading screen*/
+.loading-screen {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: #0d1b1e;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    opacity: 1;
+    transition: opacity 0.5s ease-in-out;
+    z-index: 9999
+}
+
+.loading-text {
+    color: #fff;
+    font-size: 60px;
+    margin-top: 20px;
+}
+
+.animation-container {
+    position: relative;
+    width: 100px;
+    height: 200px;
+    display: flex;
+    justify-content: center;
+    align-items: flex-end;
+}
+
+/*cards design*/
+.card-container {
+    display: flex;
+    gap: 20px;
+    padding: 20px;
+    overflow-x: auto;
+    
+}
+
+/* Styles for each card */
+.card {
+    background-color: #c3dbc5;
+    box-shadow: 0px 0px 5px 0px rgba(0, 0, 0, 0.3);
+    border-radius: 5px;
+    text-align: center;
+    padding: 10px;
+    flex: 0 0 calc(25% - 20px);
+    max-width: calc(25% - 20px);
+    position: relative;
+}
+
+/* Styles for the card images (transparent background) */
+.card-image {
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    height: 150px; /* Set the desired image height */
+    opacity: 1; /* Adjust the opacity for the desired effect */
+    border-radius: 5px;
+}
+
+/* Styles for the card titles */
+h2 {
+    margin-top: 10px;
+    font-size: 1.5rem;
+}
+
+/* Styles for the card buttons */
+button {
+    background-color: #0d1b1e;
+    color: #fff;
+    border: none;
+    padding: 10px 20px;
+    margin-top: 10px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+
+button:active{
+    transform: translateY(2px) translateX(2px); /* Add a downward shift on click */
+    box-shadow: 0px 0px 5px 0px rgba(0, 0, 0, 0.5); 
+}
+/* Adjust styles for smaller screens */
+@media screen and (max-width: 768px) {
+    .card {
+        flex: 0 0 calc(50% - 20px);
+        max-width: 100%;
+    }
+}
+
+img {
+    max-width: 100%;
+    height: auto;
+    
+}
+
+
+
+@media screen and (max-width: 600px) {
+    .image{
+        background-position: -400px;
+    }
+    .card-container {
+        flex-direction: column;
+        width: 100%;
+    }
+}

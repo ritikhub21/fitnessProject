@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>   
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <title>Fitness Freak</title>
+        <link rel="stylesheet" href="style.css"> 
+        <link href="https://cdn.jsdelivr.net/npm/remixicon@3.5.0/fonts/remixicon.css" rel="stylesheet">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    </head> 
+    <body>
+    
+    <header>
+      <div class="logo">
+         <img src="./logo.jpeg">
+      </div>
+      
+      <div class="menu-icon">&#9776;</div>
+        <nav class="nav">
+          <a href="index.html">HOME</a>
+          <a href="women.html" target="_blank" >WOMEN</a>
+          <a href="men.html"target="_blank" >MEN</a>
+          <a href="kids.html"target="_blank">KIDS</a>
+          <a href="aboutpage.html"target="_blank">ABOUT</a>
+         
+
+
+        </nav>   
+   </header>
+   <div>
+    <h1>BLOOM YOUR HEALTH</h1>
+   </div>
+    </div>
+    <div class="container">
+        <div class="text">
+            <h2>CODE<span><br>YOUR</span><br>JOURNEY</h2>
+
+        </div>
+    </div>
+    <div class="image">
+        <img src="BOM.png" width="100%"  alt="Your Image Description">
+    </div>
+    <div class="image">
+        <img src="BOM2.png" width="100%" alt="Your Image Description">
+    </div>
+    
+    <div class="loading-screen">
+        <div class="loading-text">---</div>
+        <div class="loading-text">| Please Wait |</div>
+        <div class="loading-text">---</div>
+    </div>
+    <script>
+        // Simulate loading completion
+        window.addEventListener("load", function () {
+            setTimeout(function () {
+                var loadingScreen = document.querySelector(".loading-screen");
+                loadingScreen.style.opacity = "0";
+                setTimeout(function () {
+                    loadingScreen.style.display = "none";
+                    
+                }, 500);
+            }, 2000); 
+        });
+    </script>
+     <script>
+        // JavaScript to toggle the navigation menu in smaller screens
+        const menuIcon = document.querySelector('.menu-icon');
+        const nav = document.querySelector('.nav');
+
+        menuIcon.addEventListener('click', () => {
+            nav.classList.toggle('active');
+            menuIcon.classList.toggle('active');
+        });
+    </script>
+
+   <footer>
+    <p>&copy; BLOOM YOUR HEALTH 2023 Showcase. All rights reserved.</p>
+    <div class="footer-links">
+        <a href="#">Privacy Policy</a>
+        <a href="#">Terms of Service</a>
+        <a href="#">Contact Us</a>
+    </div>
+    <div class="social">
+      <a href=""><i class="fab fa-instagram"></i></a>
+      <a href=""><i class="fab fa-snapchat"></i></a>
+      <a href=""><i class="fab fa-twitter"></i></a>
+      <a href=""><i class="fab fa-facebook"></i></a>
+    </div>
+</footer>
+        
+
+        
+    </body>
+</html>
+

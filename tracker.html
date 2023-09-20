@@ -1,0 +1,232 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>   
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <title>DYD</title>
+        <link rel="stylesheet" href="tracker.css"> 
+        <link href="https://cdn.jsdelivr.net/npm/remixicon@3.5.0/fonts/remixicon.css" rel="stylesheet">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    </head> 
+    <body>
+    
+    <header>
+      <div class="logo">
+         <img src="./logo.jpeg">
+      </div>
+      
+      <div class="menu-icon">&#9776;</div>
+        <nav class="nav">
+          <a href="index.html">HOME</a>
+          <a href="women.html">WOMEN</a>
+          <a href="men.html">MEN</a>
+          <a href="kids.html">KIDS</a>
+          <a href="aboutpage.html">ABOUT</a>
+          <a href="shop.html">SHOP</a>
+
+        </nav> 
+    </header>
+    <script>
+        // Simulate loading completion
+        window.addEventListener("load", function () {
+            setTimeout(function () {
+                var loadingScreen = document.querySelector(".loading-screen");
+                loadingScreen.style.opacity = "0";
+                setTimeout(function () {
+                    loadingScreen.style.display = "none";
+                    
+                }, 500);
+            }, 2000); // Simulate a 2-second loading process; adjust as needed
+        });
+    </script>
+     <script>
+        // JavaScript to toggle the navigation menu in smaller screens
+        const menuIcon = document.querySelector('.menu-icon');
+        const nav = document.querySelector('.nav');
+
+        menuIcon.addEventListener('click', () => {
+            nav.classList.toggle('active');
+            menuIcon.classList.toggle('active');
+        });
+    </script>
+    <div id="bmi-container">
+        <h1>BMI Calculator</h1>
+        <h1>Click pdf to view range</h1>
+        <label for="weight">Weight (kg):</label>
+        <input type="text" id="weight" placeholder="Enter your weight">
+        <label for="height">Height (cm):</label>
+        <input type="text" id="height" placeholder="Enter your height">
+        <button onclick="calculateBMI()">CALCULATE BMI</button>
+        <button onclick="location.href='bmipres.png'">RANGE</button>
+        <button onclick="location.href='range.png'">EFFECT AND CURES</button>
+        <div id="result"></div>
+    </div>
+    <div id="pulse-container">
+        <h1 id="pulse-heading">Pulse Rate Calculator</h1>
+        <button id="startTimer" onclick="startPulseRate()">START TIMER</button>
+        
+        <div id="timer">Timer: 0:60</div>
+        <button onclick="location.href='cure2.jpg'">EFFECT AND CURES</button>
+        <button onclick="location.href='range2.jpg'">RANGE</button>
+    </div>
+    <div id="color-blindness-container">
+        <h1 id="color-blindness-heading">Color Blindness Test</h1>
+        <img src="c1.jpeg" alt="Image 1" class="color-blindness-image">
+        <label for="image1">What number do you see in Image 1?</label>
+        <input type="text" id="image1" placeholder="Enter number">
+        
+        <img src="c2.jpeg" alt="Image 2" class="color-blindness-image">
+        <label for="image2">What number do you see in Image 2?</label>
+        <input type="text" id="image2" placeholder="Enter number">
+        
+        <img src="c3.jpeg" alt="Image 3" class="color-blindness-image">
+        <label for="image3">What number do you see in Image 3?</label>
+        <input type="text" id="image3" placeholder="Enter number">
+        
+        <img src="c4.jpeg" alt="Image 4" class="color-blindness-image">
+        <label for="image4">What number do you see in Image 4?</label>
+        <input type="text" id="image4" placeholder="Enter number">
+        
+        <img src="c5.jpeg" alt="Image 5" class="color-blindness-image">
+        <label for="image5">What number do you see in Image 5?</label>
+        <input type="text" id="image5" placeholder="Enter number">
+
+        <button onclick="checkColorBlindness()">Check Color Blindness</button>
+        <div id="color-blindness-result"></div>
+        </div>
+
+        <div class="bfp-container">
+            <h1>Body Fat Percentage Calculator WOMEN</h1>
+            <label for="bmi">Enter your BMI:</label>
+            <input type="number" id="bmi" placeholder="Enter your BMI" step="0.01" required>
+            <label for="age">Enter your age:</label>
+            <input type="number" id="age" placeholder="Enter your age" required>
+            <button onclick="calculateBodyFat()">Calculate</button>
+            <button onclick="location.href='womenwat.jpg'">VIEW RANGE FOR WOMEN</button>
+            <div id="result2"></div>
+
+            <h1>Body Fat Percentage Calculator MEN</h1>
+            <label for="bmi2">Enter your BMI:</label>
+            <input type="number" id="bmi2" placeholder="Enter your BMI" step="0.01" required>
+            <label for="age2">Enter your age:</label>
+            <input type="number" id="age2" placeholder="Enter your age" required>
+            <button onclick="calculateBodyFat2()">Calculate</button>
+            <button onclick="location.href='menwaternew.jpg'">VIEW RANGE FOR MEN</button>
+            <div id="result3"></div>
+        </div>
+    </div>
+ 
+  
+
+    <script>
+        let pulseInterval;
+        let secondsRemaining = 60;
+
+                function calculateBMI() {
+            // Get user input values
+            const weight = parseFloat(document.getElementById('weight').value);
+            const heightCM = parseFloat(document.getElementById('height').value);
+
+            // Convert height from cm to m
+            const heightM = heightCM / 100;
+
+            // Check if the input values are valid
+            if (isNaN(weight) || isNaN(heightM) || weight <= 0 || heightM <= 0) {
+                document.getElementById('result').textContent = "Please enter valid weight and height values.";
+            } else {
+                // Calculate BMI
+                const bmi = weight / (heightM * heightM);
+
+                // Display the result
+                document.getElementById('result').textContent = `Your BMI is: ${bmi.toFixed(2)}`;
+            }
+        }
+
+        function startPulseRate() {
+            document.getElementById('startTimer').disabled = true;
+            pulseInterval = setInterval(function () {
+                secondsRemaining--;
+                updateTimerDisplay();
+                if (secondsRemaining === 0) {
+                    stopPulseRate();
+                }
+            }, 1000);
+        }
+
+        function stopPulseRate() {
+            clearInterval(pulseInterval);
+            document.getElementById('startTimer').disabled = false;
+            secondsRemaining = 60;
+            updateTimerDisplay();
+        }
+
+        function updateTimerDisplay() {
+            const minutes = Math.floor(secondsRemaining / 60);
+            const seconds = secondsRemaining % 60;
+            document.getElementById('timer').textContent = `Timer: ${minutes}:${seconds < 10 ? '0' : ''}${seconds}`;
+        }
+        function checkColorBlindness() {
+            const correctAnswers = ["15", "29", "6", "26", "8"];
+            let score = 0;
+
+            for (let i = 1; i <= 5; i++) {
+                const userAnswer = document.getElementById(`image${i}`).value;
+                if (userAnswer === correctAnswers[i - 1]) {
+                    score++;
+                }
+            }
+
+            document.getElementById('color-blindness-result').textContent = `Points out of 5: ${score}`;
+        }
+        function calculateBodyFat() {
+            const bmi_1 = parseFloat(document.getElementById("bmi").value);
+            const age = parseFloat(document.getElementById("age").value);
+
+            if (isNaN(bmi_1) || isNaN(age)) {
+                alert("Please enter valid numbers for BMI and age.");
+                return;
+            }
+
+
+            // Calculate Body Fat Percentage using BMI and age
+            const bodyFatPercentage = 1.2 * bmi_1 + 0.23 * age - 5.4;
+
+            document.getElementById("result2").innerHTML = `Estimated Body Fat Percentage: ${bodyFatPercentage.toFixed(2)}%`;
+        }
+        function calculateBodyFat2() {
+            const bmi_2 = parseFloat(document.getElementById("bmi2").value);
+            const age2 = parseFloat(document.getElementById("age2").value);
+
+            if (isNaN(bmi_2) || isNaN(age2)) {
+                alert("Please enter valid numbers for BMI and age.");
+                return;
+            }
+
+
+            // Calculate Body Fat Percentage using BMI and age
+            const bodyFatPercentage_2 = 1.2 * bmi_2 + 0.23 * age2 - 16.2;
+
+            document.getElementById("result3").innerHTML = `Estimated Body Fat Percentage: ${bodyFatPercentage_2.toFixed(2)}%`;
+        }
+
+    </script>
+    <footer>
+        <p>&copy; BLOOM YOUR HEALTH 2023 Showcase. All rights reserved.</p>
+        <div class="footer-links">
+            <a href="#">Privacy Policy</a>
+            <a href="#">Terms of Service</a>
+            <a href="#">Contact Us</a>
+        </div>
+        <div class="social">
+            <a href=""><i class="fab fa-instagram"></i></a>
+            <a href=""><i class="fab fa-snapchat"></i></a>
+            <a href=""><i class="fab fa-twitter"></i></a>
+            <a href=""><i class="fab fa-facebook"></i></a>
+        </div>
+    </footer>
+            
+    
+            
+        </body>
+    </html>
+           

@@ -1,0 +1,361 @@
+*{
+    
+    padding: 0;
+    box-sizing: border-box;
+    transition: .2s linear;
+    font-family: 'Gilroy';
+    overflow-x: hidden;/*prevent scroll bar for whole page*/
+}
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-image: url("./water.webp");
+    background-size: cover ;
+
+}
+/*----------------header-------------------------------*/
+header {
+    padding: 10px;
+    color: #7798ab;
+    text-align: center;
+    display: flex;
+    justify-content: space-between ;
+    align-items: center;
+}
+.logo{
+    display: flex;
+    align-items: center;
+
+}
+.logo img{
+    max-width: 50px;
+    height: auto;
+    margin-right: 10px;
+}
+.nav {
+    display: flex;
+}
+.nav a:hover{
+    cursor: pointer;
+    color:#e9dcb9;
+    background-color: #0d1b1e;
+}
+.nav a {
+    color: #fff;
+    text-decoration: none;
+    margin-left: 50px;
+    font-size: 18px;
+}
+.menu-icon{
+    display: none;
+}
+h1{
+    display: flex;
+    justify-content: center;
+    color:#0d1b1e;
+    background-image: url("");
+}
+h2{
+    display: flex;
+    justify-content: center;
+    color:#0d1b1e;
+    
+
+}
+h5{
+    font-size: 30px;
+    display: flex;
+    justify-content: center;
+    color:#0d1b1e;
+   
+    
+}
+
+
+
+/* Responsive styles for header*/
+@media screen and (max-width: 600px) {
+    .nav {
+        display: none;
+    }
+
+    .nav.active {
+        display: block;
+        position: absolute;
+        top: 75px;
+        left: 0;
+        width: 100%;
+        background-color:#e9dcb9 ;
+    }
+
+    .nav.active a {
+        display: block;
+        padding: 10px;
+    }
+
+    .menu-icon {
+        display: block;
+        font-size: 24px;
+        cursor: pointer;
+    }
+
+    .menu-icon.active {
+        color:#e9dcb9;
+    }
+    
+    
+    .logo {
+        margin-bottom: 10px;
+    }
+      
+}
+/*footer design*/
+footer {
+    background-color: black;
+    color: #fff;
+    text-align: center;
+    padding: 20px;
+}
+.social{
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    margin-top: 10px;
+
+}
+.social a{
+    color: #fff;
+    text-decoration: none;
+    margin: 0 15px;
+    font-size: 14px;
+
+}
+.footer-links {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    margin-top: 10px;
+}
+.footer-links a {
+    color: #fff;
+    text-decoration: none;
+    margin: 0 15px;
+    font-size: 14px;
+}
+/* Responsive styles for footer*/
+@media screen and (max-width: 600px) {
+    .footer-links {
+        flex-direction: column;
+    }
+
+    .footer-links a {
+        margin: 5px 0;
+    }
+}
+/*loading screen*/
+.loading-screen {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: #0d1b1e;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    opacity: 1;
+    transition: opacity 0.5s ease-in-out;
+    z-index: 9999
+}
+
+.loading-text {
+    color: #fff;
+    font-size: 60px;
+    margin-top: 20px;
+}
+
+.animation-container {
+    position: relative;
+    width: 100px;
+    height: 200px;
+    display: flex;
+    justify-content: center;
+    align-items: flex-end;
+}
+
+
+
+/* Styles for the bottle and water */
+.bottle {
+    background-color: #f0f0f0;
+    width: 100px;
+    height: 200px;
+    position: relative;
+    margin: 0 auto;
+    border: 5px solid #333;
+    border-bottom: none;
+    border-radius: 10px;
+    overflow: hidden;
+}
+
+.water {
+    background-color: #007bff;
+    width: 100%;
+    height: 0;
+    position: absolute;
+    bottom: 0;
+    transition: height 0.5s ease; /* Add a transition effect to the water level */
+}
+
+.bottle-neck {
+    background-color: #1abae6;
+    width: 50px;
+    height: 20px;
+    position: absolute;
+    top: -10px;
+    left: 50%;
+    transform: translateX(-50%);
+    border-radius: 0 0 10px 10px;
+}
+
+/* Adjust styles for the button */
+button {
+    background-color: #c3dbc5;
+    color:#0d1b1e ;
+    padding: 10px 20px;
+    font-size: 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    display: block;
+    margin: 20px auto;
+}
+
+button:hover {
+    background-color: #c3dbc5;
+}
+.percentage {
+    position: absolute;
+    bottom: 50%;
+    left: 50%;
+    transform: translate(-50%, 50%);
+    font-size: 16px;
+    color: #fff;
+    z-index: 1;
+}
+.party-popper {
+    position: absolute;
+    width: 50px;
+    height: 50px;
+    background-image: url('./party.png'); /* Replace with the image of a party popper */
+    background-size: cover;
+    animation: pop 2s ease forwards;
+    opacity: 0;
+}
+
+@keyframes pop {
+    0% {
+        transform: translateY(0);
+        opacity: 1;
+    }
+    100% {
+        transform: translateY(-100px);
+        opacity: 0;
+    }
+}
+
+
+/* Updated styles for the congratulations message */
+.congratulations {
+    font-size: 24px; /* Increase the font size */
+    color: #c3dbc5; 
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;/* Change the color to blue */
+    text-align: center; /* Center-align the text */
+    margin-top: 20px; 
+    margin-bottom: 20px;
+    background-color: #0d1b1e;
+}
+
+/* Styles for the Pomodoro Timer */
+.timer-container {
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.timer {
+    font-size: 3rem;
+    font-weight: bold;
+    color: #fff; /* Change the text color to white */
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5); /* Add a subtle text shadow */
+    background: linear-gradient(to right, #c3dbc5, #c3dbc5); /* Add a gradient background */
+    background-clip: text;
+    -webkit-background-clip: text; /* Clip background to text */
+    -webkit-text-fill-color: transparent; /* Make text transparent to show background */
+    margin: 20px 0;
+    font-family: 'Pacifico', cursive;
+}
+.timer-container h2 {
+    font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    color: #c3dbc5; /* Change the color to blue */
+    font-size: 50px;
+}
+
+/* Styles for the input and buttons */
+#timer-input {
+    font-size: 1rem; /* Adjust the font size for the input field */
+    padding: 5px;
+    width: 200px;
+    text-align: center;
+}
+
+#start-timer, #reset-timer {
+    background-color: #c3dbc5;
+    color: #0d1b1e;
+    padding: 5px 10px;
+    font-size: 1rem; /* Adjust the font size for the buttons */
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    margin: 10px;
+    transition: background-color 0.3s ease;
+}
+
+#start-timer:hover, #reset-timer:hover {
+    background-color: #0056b3;
+}
+@media (max-width: 660px) {
+    .timer {
+        font-size: 2rem; /* Reduce font size for smaller screens */
+    }
+
+    #timer-input {
+        font-size: 0.9rem; /* Reduce font size for smaller screens */
+    }
+
+    #start-timer, #reset-timer {
+        font-size: 0.9rem; /* Reduce font size for smaller screens */
+    }
+}
+
+.container {
+    display: flex;
+    flex-direction: row; /* Arrange the sections side by side */
+    align-items: center; /* Center the content vertically */
+    justify-content: space-between; /* Create space between the sections */
+}
+
+.left-section {
+    flex: 1; /* Occupy 50% of the container width */
+    text-align: center;
+}
+
+.right-section {
+    flex: 1; /* Occupy 50% of the container width */
+    text-align: center;
+}
